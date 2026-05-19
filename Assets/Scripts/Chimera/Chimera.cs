@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Chimera : MonoBehaviour
 {
-    public GameObject head = null;
-    public GameObject body = null;
-    public GameObject legs = null;
+    public ChimeraPart head = null;
+    public ChimeraPart body = null;
+    public ChimeraPart legs = null;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

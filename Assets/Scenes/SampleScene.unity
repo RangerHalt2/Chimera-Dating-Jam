@@ -914,26 +914,26 @@ MonoBehaviour:
   partCandidates: 3
   chimera: {fileID: 1086086246}
   headMasterList:
-  - {fileID: 3287815258283960737, guid: 4727465f9e1aa3042b1f332f49ca2ba0, type: 3}
-  - {fileID: 937098345809762787, guid: 916d25ad17cf1a840991127e0bea9e3d, type: 3}
-  - {fileID: 8911210515137501493, guid: 53d8b627b8b56cb4f82aa4eae5a18112, type: 3}
-  - {fileID: 5692990107779696171, guid: 76c3219826b46bb48af70cc2be034099, type: 3}
-  - {fileID: 5996503612029602105, guid: 48e3108a34896bd409592358d92378fa, type: 3}
-  - {fileID: 4727834964313466828, guid: d70ba346acf398d4680a38701475df5e, type: 3}
+  - {fileID: 11400000, guid: 72120b3285033644293bce521bee33b9, type: 2}
+  - {fileID: 11400000, guid: 9f7540396586eef4dae0b873250f74fc, type: 2}
+  - {fileID: 11400000, guid: e9773ab4032a4cd4ca039e3c72fd1a17, type: 2}
+  - {fileID: 11400000, guid: 73c0063bc85316546aa6df816fda230c, type: 2}
+  - {fileID: 11400000, guid: ef561d32461dc46499d54571266aef93, type: 2}
+  - {fileID: 11400000, guid: 30d1ad439e586824fae8f156bbedb5d4, type: 2}
   bodyMasterList:
-  - {fileID: 809741492123580943, guid: 48f9bf0e77016e24db043aa8af6f5f82, type: 3}
-  - {fileID: 2404226284178813675, guid: 4819dca67208b5642b4754fd2eb7af82, type: 3}
-  - {fileID: 1326962950226444300, guid: aae46c72d35bbab4a9e1fcc957bc7e41, type: 3}
-  - {fileID: 2271376274818745802, guid: 8481d0a3e92952e45bb6fab1664ef971, type: 3}
-  - {fileID: 7639425918846516827, guid: 57adc55b9320dbf4e8d3c39738dd9877, type: 3}
-  - {fileID: 8834639349149897496, guid: 67a306a4ba2b52048a3bf915a4341cd4, type: 3}
+  - {fileID: 11400000, guid: edc775b5e2952834ebdadb5cdbd05a7f, type: 2}
+  - {fileID: 11400000, guid: ac25692e2395c2a458bd5673fc01962e, type: 2}
+  - {fileID: 11400000, guid: 7f55619a556628447b5bcead4c5e02f1, type: 2}
+  - {fileID: 11400000, guid: 1727434ddbcdf9c44a168ade5982c62c, type: 2}
+  - {fileID: 11400000, guid: 5052b3501194ccf438a8ffb005eae3b5, type: 2}
+  - {fileID: 11400000, guid: ce1d547e65aa02344b2b0b9e4e2a9948, type: 2}
   legsMasterList:
-  - {fileID: 4956560250636639963, guid: 23b0fe5eee835604bad50d558fa50c60, type: 3}
-  - {fileID: 2501218920165988504, guid: b5d9fa89d44d50b44b2e6c49f7614b7f, type: 3}
-  - {fileID: 4837284695007992478, guid: cbe273fe20eabdc4e90f767ca508e08a, type: 3}
-  - {fileID: 4988023561440405146, guid: ef181479ddb3726429e0d04e0bceb81c, type: 3}
-  - {fileID: 8619080038099840966, guid: 5a41f57f1ca681346a8cae46d9c0d590, type: 3}
-  - {fileID: 6254272285609105066, guid: 7b50f8d407241294b9b40e9b061840cc, type: 3}
+  - {fileID: 11400000, guid: 51ba857a8ffa1b541816cae5b6cc9ea5, type: 2}
+  - {fileID: 11400000, guid: 62e37f8510cd9234e9876048e1616a8e, type: 2}
+  - {fileID: 11400000, guid: 6879299de0006824f940534e2186af88, type: 2}
+  - {fileID: 11400000, guid: 40319198e9f785143b82987784eb1ea4, type: 2}
+  - {fileID: 11400000, guid: 9c6daeb801d571942b0a3e3e76356a51, type: 2}
+  - {fileID: 11400000, guid: 819eb06018995a542b9e98616fc449a7, type: 2}
   headRow: {fileID: 1323399959}
   bodyRow: {fileID: 719879596}
   legRow: {fileID: 2004216199}

@@ -5,21 +5,20 @@ using UnityEngine.UI;
 
 public class CandidateButton : MonoBehaviour
 {
-    private GameObject candidate;
+    private ChimeraPart candidate;
     private ChimeraPartGenerator generator;
     private string type;
 
     // Sets up the button with the proper data
     // Called by ChimeraPartGenerator
-    public void Setup(GameObject candidate, ChimeraPartGenerator generator, string type)
+    public void Setup(ChimeraPart candidate, ChimeraPartGenerator generator)
     {
         this.candidate = candidate;
         this.generator = generator;
-        this.type = type;
     }
 
     public void OnClick()
     {
-        generator.SelectPart(candidate, type);
+        generator.SelectPart(candidate);
     }
 }

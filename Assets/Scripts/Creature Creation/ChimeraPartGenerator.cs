@@ -15,33 +15,31 @@ public class ChimeraPartGenerator : MonoBehaviour
 
     [Header("Predetermined Part Lists")]
     [Tooltip("A master list of all potential heads a chimera could have.")]
-    [SerializeField] private List<GameObject> headMasterList;
+    [SerializeField] private List<ChimeraPart> headMasterList;
     [Tooltip("A master list of all potential bodies a chimera could have.")]
-    [SerializeField] private List<GameObject> bodyMasterList;
+    [SerializeField] private List<ChimeraPart> bodyMasterList;
     [Tooltip("A master list of all potential legs a chimera could have.")]
-    [SerializeField] private List<GameObject> legsMasterList;
+    [SerializeField] private List<ChimeraPart> legsMasterList;
 
     // The list of selected head candidates
-    private List<GameObject> headCandidates = new List<GameObject>();
+    private List<ChimeraPart> headCandidates = new List<ChimeraPart>();
     // The list of seleceted body candidates
-    private List<GameObject> bodyCandidates = new List<GameObject>();
+    private List<ChimeraPart> bodyCandidates = new List<ChimeraPart>();
     // The list of selected leg candidates
-    private List<GameObject> legsCandidates = new List<GameObject>();
+    private List<ChimeraPart> legsCandidates = new List<ChimeraPart>();
 
     [Header("Selected Parts")]
     [Tooltip("A list of selected heads the player can use to create their Chimera.")]
-    public List<GameObject> HeadCandidates => headCandidates;
+    public List<ChimeraPart> HeadCandidates => headCandidates;
     [Tooltip("A list of selected bodies the player can use to create their Chimera.")]
-    public List<GameObject> BodyCandidates => bodyCandidates;
+    public List<ChimeraPart> BodyCandidates => bodyCandidates;
     [Tooltip("A list of selected legs the player can use to create their Chimera.")]
-    public List<GameObject> LegsCandidates => legsCandidates;
+    public List<ChimeraPart> LegsCandidates => legsCandidates;
 
     [Header("Candidate UI References")]
     [SerializeField] private Transform headRow;
     [SerializeField] private Transform bodyRow;
     [SerializeField] private Transform legRow;
-
-    [SerializeField] private GameObject candidateUIPrefab;
 
     [Header("Selected Part UI References")]
     [SerializeField] private Transform headSelected;
@@ -67,6 +65,7 @@ public class ChimeraPartGenerator : MonoBehaviour
     // Generates Chimera Parts for every list at once
     private void GenerateChimeraParts()
     {
+        Debug.Log("ChimeraPartGenerator: Generating Chimera Parts.");
         // Generate Parts for all candidate lists
         GenerateCandidates(headMasterList, headCandidates);
         GenerateCandidates(bodyMasterList, bodyCandidates);
@@ -74,7 +73,7 @@ public class ChimeraPartGenerator : MonoBehaviour
     }
 
     // Generates a list of selected candidates taken from a masterList and assings the to a provided candidateList
-    private void GenerateCandidates(List<GameObject> masterList, List<GameObject> candidateList)
+    private void GenerateCandidates(List<ChimeraPart> masterList, List<ChimeraPart> candidateList)
     {
         // Empty the headCandiates List to ensure the correct amount of candidates as specified by partCandidates
         candidateList.Clear();
@@ -96,7 +95,7 @@ public class ChimeraPartGenerator : MonoBehaviour
         int candidatesToGenerate = Mathf.Min(partCandidates, masterList.Count);
 
         // Create a temporary copy of the master list, so that selected parts may be removed
-        List<GameObject> availableParts = new List<GameObject>(masterList);
+        List<ChimeraPart> availableParts = new List<ChimeraPart>(masterList);
 
         // Generate the pre-determined amount of parts specified by partCandidates
         for (int i = 0; i < candidatesToGenerate; i++)
@@ -122,14 +121,14 @@ public class ChimeraPartGenerator : MonoBehaviour
         GenerateChimeraParts();
 
         // Display Part Candidates
-        DisplayCandidates(headCandidates, headRow, "Head");
-        DisplayCandidates(bodyCandidates, bodyRow, "Body");
-        DisplayCandidates(legsCandidates, legRow, "Legs");
+        DisplayCandidates(headCandidates, headRow);
+        DisplayCandidates(bodyCandidates, bodyRow);
+        DisplayCandidates(legsCandidates, legRow);
     }
     #endregion
 
     #region Display Methods
-    private void DisplayCandidates(List<GameObject> candidates, Transform rowParent, string type)
+    private void DisplayCandidates(List<ChimeraPart> candidates, Transform rowParent)
     {
         // Clear old UI
         foreach (Transform child in rowParent)
@@ -138,23 +137,18 @@ public class ChimeraPartGenerator : MonoBehaviour
         }
 
         // Create new UI elements
-        foreach(GameObject candidate in candidates)
+        foreach(ChimeraPart candidate in candidates)
         {
             // Spawn UI prefab
-            GameObject uiObject = Instantiate(candidateUIPrefab, rowParent);
+            GameObject uiObject = Instantiate(candidate.partUIPrefab, rowParent);
 
             // Find Sprite renderer on child
-            SpriteRenderer spriteRenderer = candidate.GetComponentInChildren<SpriteRenderer>();
-
-            if (spriteRenderer != null)
-            {
-                UnityEngine.UI.Image image = uiObject.GetComponentInChildren<UnityEngine.UI.Image>();
-
-                image.sprite = spriteRenderer.sprite;
-            }
+            UnityEngine.UI.Image image = uiObject.GetComponentInChildren<UnityEngine.UI.Image>();
+            image.sprite = candidate.partSprite;
 
             CandidateButton button = uiObject.GetComponent<CandidateButton>();
-            button.Setup(candidate, this, type);
+
+            button.Setup(candidate, this);
         }
     }
 
@@ -166,7 +160,7 @@ public class ChimeraPartGenerator : MonoBehaviour
         DisplaySingle(chimera.legs, legSelected);
     }
 
-    private void DisplaySingle(GameObject part, Transform loc)
+    private void DisplaySingle(ChimeraPart part, Transform loc)
     {
         // Destroy all current children in the selection box
         foreach (Transform child in loc)
@@ -175,35 +169,31 @@ public class ChimeraPartGenerator : MonoBehaviour
         // If there is no part, do nothing
         if (part == null) return;
 
-        GameObject uiObject = Instantiate(candidateUIPrefab, loc);
+        GameObject uiObject = Instantiate(part.partUIPrefab, loc);
 
-        SpriteRenderer spriteRenderer = part.GetComponentInChildren<SpriteRenderer>();
-
-        if (spriteRenderer != null)
-        {
-            UnityEngine.UI.Image image = uiObject.GetComponentInChildren<UnityEngine.UI.Image>();
-
-            image.sprite = spriteRenderer.sprite;
-        }
+        UnityEngine.UI.Image image = uiObject.GetComponentInChildren<UnityEngine.UI.Image>();
+        image.sprite = part.partSprite;
     }
     #endregion
 
     // Used to select a part and add it to the Chimera
-    public void SelectPart(GameObject part, string type)
+    public void SelectPart(ChimeraPart part)
     {
-        switch (type)
+        switch (part.partType)
         {
-            case "Head":
+            case ChimeraPart.Type.Head:
                 chimera.head = part;
+                Debug.Log($"ChimeraPartGenerator: Selected {part.name} as head.");
                 break;
-            case "Body":
+            case ChimeraPart.Type.Body:
                 chimera.body = part;
+                Debug.Log($"ChimeraPartGenerator: Selected {part.name} as body.");
                 break;
-            case "Legs":
+            case ChimeraPart.Type.Legs:
                 chimera.legs = part;
+                Debug.Log($"ChimeraPartGenerator: Selected {part.name} as legs.");
                 break;
         }
-        Debug.Log($"ChimeraPartGenerator: Selected {part.name} as {type}");
 
         DisplaySelected();
     }

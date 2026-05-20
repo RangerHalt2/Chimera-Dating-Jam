@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ChimeraPart", menuName = "Scriptable Objects/ChimeraPart")]
 public class ChimeraPart : ScriptableObject
@@ -13,6 +14,9 @@ public class ChimeraPart : ScriptableObject
     public GameObject partUIPrefab;
     [Tooltip("The amount of points associated with this chimera part.")]
     public float partPoints;
+
+    [Tooltip("A list of any and all tags the part should have.")]
+    public List<string> partTags;
 
     public enum Type
     {

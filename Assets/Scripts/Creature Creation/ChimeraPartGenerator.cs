@@ -3,7 +3,6 @@
 // Can also assign those parts to a referneced Chimera Game Object
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ChimeraPartGenerator : MonoBehaviour
 {
@@ -40,6 +39,10 @@ public class ChimeraPartGenerator : MonoBehaviour
     [SerializeField] private Transform headRow;
     [SerializeField] private Transform bodyRow;
     [SerializeField] private Transform legRow;
+    [Space]
+    [SerializeField] private InfiniteScrollRect headCarousel;
+    [SerializeField] private InfiniteScrollRect bodyCarousel;
+    [SerializeField] private InfiniteScrollRect legCarousel;
 
     [Header("Selected Part UI References")]
     [SerializeField] private Transform headSelected;
@@ -52,7 +55,7 @@ public class ChimeraPartGenerator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GenerateChimeraParts();
+        GenerateAndDisplayCandidates();
     }
 
     // Update is called once per frame
@@ -70,6 +73,8 @@ public class ChimeraPartGenerator : MonoBehaviour
         GenerateCandidates(headMasterList, headCandidates);
         GenerateCandidates(bodyMasterList, bodyCandidates);
         GenerateCandidates(legsMasterList, legsCandidates);
+
+        GameEvent.PartsGenerated?.Invoke();
     }
 
     // Generates a list of selected candidates taken from a masterList and assings the to a provided candidateList
@@ -121,9 +126,36 @@ public class ChimeraPartGenerator : MonoBehaviour
         GenerateChimeraParts();
 
         // Display Part Candidates
-        DisplayCandidates(headCandidates, headRow);
-        DisplayCandidates(bodyCandidates, bodyRow);
-        DisplayCandidates(legsCandidates, legRow);
+        //For row UI
+        if (headRow != null)
+        {
+            DisplayCandidates(headCandidates, headRow);
+        }
+        if (bodyRow != null)
+        {
+            DisplayCandidates(headCandidates, bodyRow);
+        }
+        if (legRow != null)
+        {
+            DisplayCandidates(headCandidates, legRow);
+        }
+
+        // For Carousel UI
+        if(headCarousel != null)
+        {
+            headCarousel.assets = headCandidates;
+            headCarousel.Rebuild();
+        }
+        if (bodyCarousel != null)
+        {
+            bodyCarousel.assets = bodyCandidates;
+            bodyCarousel.Rebuild();
+        }
+        if (legCarousel != null)
+        {
+            legCarousel.assets = legsCandidates;
+            legCarousel.Rebuild();
+        }
     }
     #endregion
 

@@ -17,3 +17,5 @@ MonoBehaviour:
   partSprite: {fileID: 21300000, guid: 06a617e371b6f48488a96e6fe70c61ca, type: 3}
   partUIPrefab: {fileID: 5826672859556186255, guid: 9c7ee210650be9647a0d02a26f934044, type: 3}
   partPoints: 1
+  partTags:
+  - test

@@ -17,7 +17,7 @@ MonoBehaviour:
   tailPoints: 8
   headSprite: {fileID: 21300000, guid: a5fdf6a86bb51164baf0b794413078c8, type: 3}
   bodySprite: {fileID: 21300000, guid: 0e32827340e295542b1ffd7b595ba87e, type: 3}
-  tailSprite: {fileID: 21300000, guid: a5fdf6a86bb51164baf0b794413078c8, type: 3}
+  tailSprite: {fileID: 21300000, guid: e6b97b201abf7724384f2e3f38f6e427, type: 3}
   headTags:
   - Aquatic
   - Exoskeleton

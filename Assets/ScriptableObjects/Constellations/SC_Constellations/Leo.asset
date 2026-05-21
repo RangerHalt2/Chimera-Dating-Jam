@@ -15,3 +15,6 @@ MonoBehaviour:
   headPoints: 5
   bodyPoints: 5
   tailPoints: 5
+  headSprite: {fileID: 21300000, guid: 35c7cb77d2340e54cb82b6af4dc621af, type: 3}
+  bodySprite: {fileID: 21300000, guid: 92a9e5f323bfd1743bebe5034baab173, type: 3}
+  tailSprite: {fileID: 21300000, guid: 4d0fb89bf05aaa946b5dd2393e801c8d, type: 3}

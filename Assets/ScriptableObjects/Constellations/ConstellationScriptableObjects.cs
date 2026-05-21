@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class ConstellationScriptableObjects : ScriptableObject
 {
     //The respective points worth for each part of the constellation
-    [SerializeField] private float headPoints;
-    [SerializeField] private float bodyPoints;
-    [SerializeField] private float tailPoints;
+    public float headPoints;
+    public float bodyPoints;
+    public float tailPoints;
 
-    [SerializeField] private Image headSprite;
-    [SerializeField] private Image bodySprite;
-    [SerializeField] private Image tailSprite;
+    public Sprite headSprite;
+    public Sprite bodySprite;
+    public Sprite tailSprite;
 }

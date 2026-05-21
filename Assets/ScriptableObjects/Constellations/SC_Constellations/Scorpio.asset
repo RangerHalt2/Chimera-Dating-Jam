@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5963029ad3f1fea419ecef55e0d83d2a, type: 3}
-  m_Name: Capricorn
+  m_Name: Scorpio
   m_EditorClassIdentifier: Assembly-CSharp::ConstellationScriptableObjects
-  headPoints: 4
-  bodyPoints: 4
-  tailPoints: 6
-  headSprite: {fileID: 21300000, guid: 29f0791db0925b1438f55627ae7720aa, type: 3}
-  bodySprite: {fileID: 21300000, guid: 373c8ee584dd0dd4ca2703354f3e09cd, type: 3}
-  tailSprite: {fileID: 21300000, guid: 3a6ecca88239e3f47a21abf4c881418c, type: 3}
+  headPoints: 10
+  bodyPoints: 10
+  tailPoints: 10
+  headSprite: {fileID: 21300000, guid: b0169073d62da7d4ebc695b5d6b4b351, type: 3}
+  bodySprite: {fileID: 21300000, guid: c895cce60ead7b74b871fbd9c3b11e94, type: 3}
+  tailSprite: {fileID: 21300000, guid: 63be911418b03df4f8d97b536660fe4d, type: 3}

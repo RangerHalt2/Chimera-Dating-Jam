@@ -66,7 +66,7 @@ public class ChimeraPartGenerator : MonoBehaviour
 
     #region Generator Methods
     // Generates Chimera Parts for every list at once
-    private void GenerateChimeraParts()
+    public void GenerateChimeraParts()
     {
         Debug.Log("ChimeraPartGenerator: Generating Chimera Parts.");
         // Generate Parts for all candidate lists

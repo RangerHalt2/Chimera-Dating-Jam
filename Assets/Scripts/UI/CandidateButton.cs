@@ -19,6 +19,6 @@ public class CandidateButton : MonoBehaviour
 
     public void OnClick()
     {
-        generator.SelectPart(candidate);
+        //generator.SelectPart(candidate);
     }
 }

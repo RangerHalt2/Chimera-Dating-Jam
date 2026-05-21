@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private ChimeraPartGenerator cpg;
     [SerializeField] private ConstellationBuilder cb;
+    [SerializeField] private ScoreSystem scoreSystem;
 
     private void Start()
     {
@@ -18,5 +20,13 @@ public class GameManager : MonoBehaviour
         timer.ResetTimer();
         cpg.GenerateAndDisplayCandidates();
         cb.SelectConstellation();
+        StartCoroutine(ResetGameNextFrame());
     }
+
+    private IEnumerator ResetGameNextFrame()
+    {
+        yield return new WaitForSeconds(0.2f);
+        scoreSystem.ResetGame();
+    }
+
 }

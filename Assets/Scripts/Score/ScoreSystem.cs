@@ -7,13 +7,30 @@ public class ScoreSystem : MonoBehaviour
     private Chimera chimeraRef;
 
     private float cummulativePoints;
+    private float partPoints;
+    private float tagBonusPoints;
 
     private void Start()
     {
         chimeraRef = GameObject.FindAnyObjectByType<Chimera>();
     }
 
+    //private float CalculatePartPoints()
+    //{
+        //return;
+    //}
 
+    public void Update()
+    {
+        if (chimeraRef != null)
+        {
+            
+        }
+        else
+        {
+            chimeraRef = GameObject.FindAnyObjectByType<Chimera>();
+        }
+    }
 
     public void SubmitChimera()
     {

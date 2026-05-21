@@ -18,3 +18,10 @@ MonoBehaviour:
   headSprite: {fileID: 21300000, guid: f1b0b914ba6ad2245ac027a94320028f, type: 3}
   bodySprite: {fileID: 21300000, guid: 02dd805540921a746b8e5cc3f683c3e8, type: 3}
   tailSprite: {fileID: 21300000, guid: 81f265070d8ae204daf61f978c06a8ad, type: 3}
+  headTags:
+  - Human
+  bodyTags:
+  - Animal
+  - Human
+  tailTags:
+  - Animal

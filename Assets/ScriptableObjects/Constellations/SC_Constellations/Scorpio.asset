@@ -18,3 +18,9 @@ MonoBehaviour:
   headSprite: {fileID: 21300000, guid: b0169073d62da7d4ebc695b5d6b4b351, type: 3}
   bodySprite: {fileID: 21300000, guid: c895cce60ead7b74b871fbd9c3b11e94, type: 3}
   tailSprite: {fileID: 21300000, guid: 63be911418b03df4f8d97b536660fe4d, type: 3}
+  headTags:
+  - Exoskeleton
+  bodyTags:
+  - Exoskeleton
+  tailTags:
+  - Exoskeleton

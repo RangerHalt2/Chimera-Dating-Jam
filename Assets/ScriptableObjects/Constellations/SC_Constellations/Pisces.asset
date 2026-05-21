@@ -18,3 +18,9 @@ MonoBehaviour:
   headSprite: {fileID: 21300000, guid: 4c4907b60b1d68747949311fac822d54, type: 3}
   bodySprite: {fileID: 21300000, guid: 6b205d61c7a905945aa78bd45b9cae44, type: 3}
   tailSprite: {fileID: 21300000, guid: 7771ee9ecf538904c85b140d2ae9a39c, type: 3}
+  headTags:
+  - Aquatic
+  bodyTags:
+  - Aquatic
+  tailTags:
+  - Aquatic

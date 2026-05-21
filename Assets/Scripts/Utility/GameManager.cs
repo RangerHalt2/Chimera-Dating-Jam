@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ChimeraPartGenerator cpg;
     [SerializeField] private ConstellationBuilder cb;
 
+    private void Start()
+    {
+        RestartGame();
+    }
+
     public void RestartGame()
     {
         uiManager.GoToPage(0);

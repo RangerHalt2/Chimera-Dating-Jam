@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,4 +13,9 @@ public class ConstellationScriptableObjects : ScriptableObject
     public Sprite headSprite;
     public Sprite bodySprite;
     public Sprite tailSprite;
+
+    [Tooltip("A list of any and all tags the part should have.")]
+    public List<string> headTags;
+    public List<string> bodyTags;
+    public List<string> tailTags;
 }

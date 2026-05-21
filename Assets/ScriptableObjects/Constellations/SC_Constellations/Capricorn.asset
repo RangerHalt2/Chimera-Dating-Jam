@@ -18,3 +18,10 @@ MonoBehaviour:
   headSprite: {fileID: 21300000, guid: 29f0791db0925b1438f55627ae7720aa, type: 3}
   bodySprite: {fileID: 21300000, guid: 373c8ee584dd0dd4ca2703354f3e09cd, type: 3}
   tailSprite: {fileID: 21300000, guid: 3a6ecca88239e3f47a21abf4c881418c, type: 3}
+  headTags:
+  - Horn
+  - Animal
+  bodyTags:
+  - Animal
+  tailTags:
+  - Aquatic

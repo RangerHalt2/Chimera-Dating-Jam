@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class ScoreSystem : MonoBehaviour
 {
     [SerializeField] private float winMargin = 75f; // out of 100 stuff
     [SerializeField] private float[] tagBonus = { 5f, 10f, 15f };
+    [SerializeField] private TextMeshProUGUI score;
 
     private Chimera chimeraRef;
     private Constellation constellationRef;
@@ -16,7 +18,7 @@ public class ScoreSystem : MonoBehaviour
 
     private UIManager uIManager;
 
-    private bool locked = false;
+    [HideInInspector] public bool locked = false;
 
     private void Start()
     {
@@ -57,8 +59,12 @@ public class ScoreSystem : MonoBehaviour
 
     public void Update()
     {
-        if(locked) return;
-        if (chimeraRef != null && (chimeraRef.head == null && chimeraRef.body == null && chimeraRef.legs == null) && constellationRef != null)
+        if (locked) {
+            Debug.Log("SCORE SYSTEM - update is locked, returning!");
+            return; 
+        }
+        if (chimeraRef != null && constellationRef != null
+            && chimeraRef.head != null && chimeraRef.body != null && chimeraRef.legs != null)
         {
             partPoints = 0;
             tagBonusPoints = 0;
@@ -72,6 +78,7 @@ public class ScoreSystem : MonoBehaviour
         }
         else
         {
+            Debug.Log("SCORE SYSTEM - Chimera or Constellation is NULL");
             chimeraRef = GameObject.FindAnyObjectByType<Chimera>();
             constellationRef = GameObject.FindAnyObjectByType<Constellation>();
         }
@@ -79,12 +86,14 @@ public class ScoreSystem : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-
+        if(score != null)
+            score.text = "Score: " + cummulativePoints + " / 100";
     }
 
     public void SubmitChimera()
     {
         locked = true;
+        Debug.Log("SCORE SYSTEM - submitting with points " + cummulativePoints);
         if (cummulativePoints >= winMargin)
         {
             uIManager.GoToPage(1);
@@ -94,15 +103,19 @@ public class ScoreSystem : MonoBehaviour
             uIManager.GoToPage(2);
         }
 
-        Invoke(nameof(ResetGame), 3f);
-
+        //Invoke(nameof(ResetGame), 3f);
     }
 
     public void ResetGame()
     {
         locked = false;
-        GameManager gm = GameObject.FindAnyObjectByType<GameManager>();
-        gm.RestartGame();
+        Debug.Log("SCORE SYSTEM - Reset Game Locked: " + locked);
+        chimeraRef = GameObject.FindAnyObjectByType<Chimera>();
+        constellationRef = GameObject.FindAnyObjectByType<Constellation>();
+        uIManager = GameObject.FindAnyObjectByType<UIManager>();
+        partPoints = 0;
+        tagBonusPoints = 0;
+        cummulativePoints = 0;
     }
 
 }

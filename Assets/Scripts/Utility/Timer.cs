@@ -20,6 +20,8 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (scoreSystem.locked) return;
+        Debug.Log("SCORE - Time remaining: " + remainingTime);
         // Time remaining
         if (remainingTime > 0)
         {
@@ -39,5 +41,6 @@ public class Timer : MonoBehaviour
     public void ResetTimer()
     {
         remainingTime = startingTime;
+        scoreSystem.locked = false;
     }
 }

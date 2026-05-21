@@ -16,6 +16,7 @@ MonoBehaviour:
   partType: 0
   partSprite: {fileID: 21300000, guid: 29f0791db0925b1438f55627ae7720aa, type: 3}
   partUIPrefab: {fileID: 5826672859556186255, guid: 9c7ee210650be9647a0d02a26f934044, type: 3}
-  partPoints: 0
+  partPoints: 4
   partTags:
   - Horn
+  - Animal

@@ -16,6 +16,6 @@ MonoBehaviour:
   partType: 1
   partSprite: {fileID: 21300000, guid: a8d3c3e5dbaa46b44a7faf9e856f99c7, type: 3}
   partUIPrefab: {fileID: 5826672859556186255, guid: 9c7ee210650be9647a0d02a26f934044, type: 3}
-  partPoints: 0
+  partPoints: 4
   partTags:
   - Animal

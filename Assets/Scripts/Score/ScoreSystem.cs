@@ -34,7 +34,7 @@ public class ScoreSystem : MonoBehaviour
 
     public void SubmitChimera()
     {
-
+        Debug.Log("Submit");
     }
 
 }
